@@ -1,0 +1,110 @@
+<div class="container">
+
+  <div class="d-flex justify-content-between">
+    <h4>Editar productos</h4>
+    <a href="#" routerLink="/productos/index" class="btn btn-primaryt">Atras</a>
+  </div>
+
+  <hr>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="nombre">Nombre:</label>
+        <input
+          formControlName="nombre"
+          [(ngModel)]="productos.nombre"
+          id="nombre"
+          type="text"
+          class="form-control">
+        <div *ngIf="f.nombre.touched && f.nombre.invalid" class="alert alert-danger">
+          <div *ngIf="f.nombre.errors.required">*Nombre es requerido.</div>
+          <div *ngIf="f.nombre.errors.pattern">*El nombre debe contener letras.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="precio">Precio:</label>
+        <input
+          formControlName="precio"
+          [(ngModel)]="productos.precio"
+          id="precio"
+          type="numeric"
+          class="form-control">
+        <div *ngIf="f.precio.touched && f.precio.invalid" class="alert alert-danger">
+          <div *ngIf="f.precio.errors.required">*Precio es requerido.</div>
+          <div *ngIf="f.precio.errors.email">*El correo electrónico debe ser una dirección de correo electrónico válida.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="cantidad">Phone:</label>
+        <input
+          formControlName="cantidad"
+          [(ngModel)]="productos.cantidad"
+          id="cantidad"
+          type="numeric"
+          class="form-control">
+        <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
+          <div *ngIf="f.cantidad.errors.required">*cantidad es requerida.</div>
+          <div *ngIf="f.cantidad.errors.pattern">*La cantida debe ser validas.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="imagen">Imagen:</label>
+        <input
+          formControlName="imagen"
+          [(ngModel)]="productos.imagen"
+          id="imagen"
+          type="url"
+          class="form-control">
+        <div *ngIf="f.imagen.touched && f.imagen.invalid" class="alert alert-danger">
+          <div *ngIf="f.imagen.errors.required">*Imagen es requerida.</div>
+          <div *ngIf="f.imagen.errors.pattern">*La imagen debe ser validas.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="observaciones">Observaciones:</label>
+        <input
+          formControlName="observaciones"
+          [(ngModel)]="productos.observaciones"
+          id="observaciones"
+          type="text"
+          class="form-control">
+        <div *ngIf="f.observaciones.touched && f.observaciones.invalid" class="alert alert-danger">
+          <div *ngIf="f.observaciones.errors.required">*Observaciones es requerida.</div>
+          <div *ngIf="f.observaciones.errors.pattern">*La observaciones debe ser validas.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="ciudades">Ciudades:</label>
+        <input
+          formControlName="ciudades"
+          [(ngModel)]="productos.ciudades"
+          id="ciudades"
+          type="text"
+          class="form-control">
+        <div *ngIf="f.ciudades.touched && f.ciudades.invalid" class="alert alert-danger">
+          <div *ngIf="f.ciudades.errors.required">*Ciudades es requerida.</div>
+          <div *ngIf="f.ciudades.errors.pattern">*La ciudades debe ser validas.</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Actualizar</button>
+  </form>
+</div>
